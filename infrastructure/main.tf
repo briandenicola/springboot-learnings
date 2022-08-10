@@ -29,9 +29,9 @@ resource "azurerm_resource_group" "this" {
   location              = local.location
   
   tags     = {
-    Application = ""
-    Components  = ""
+    Application = "Demo Java"
+    Components  = "Java; Spring App; Spring Cloud"
     DeployedOn  = timestamp()
-    Deployer    = data.azurerm_client_config.current.principal_id
+    Deployer    = data.azurerm_client_config.current.object_id
   }
 }
