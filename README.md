@@ -1,13 +1,3 @@
 # Overview
-## Components 
-## Architecture
 
-# Infrastructure
-## Prerequisites
-## Deployment 
-
-# Application Deployment 
-
-# Validate
-
-# Backlog 
+Just a simple repository to learn Java and the Spring Boot framework 
