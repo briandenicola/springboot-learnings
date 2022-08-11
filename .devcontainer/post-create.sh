@@ -10,4 +10,7 @@ echo "$(date)    post-create start" >> ~/status
 source /usr/local/sdkman/bin/sdkman-init.sh
 sdk install springboot
 
+sudo apt update
+sudo apt install -y make
+
 echo "$(date)    post-create stop" >> ~/status
