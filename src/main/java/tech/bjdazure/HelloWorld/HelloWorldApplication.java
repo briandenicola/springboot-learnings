@@ -57,6 +57,9 @@ class RestApiDemoController {
 
 	@PostMapping
 	Coffee postCoffee(@RequestBody Coffee coffee) {
+		if( coffee.getId() == null ){
+			coffee.setId();
+		}
 		coffees.add(coffee);
 		return coffee;
 	}
@@ -72,6 +75,10 @@ class RestApiDemoController {
 			}
 		}
 
+		if( coffee.getId() == null ){
+			coffee.setId(id);
+		}
+
 		return (coffeeIndex == -1) ? postCoffee(coffee) : coffee;
 	}
 
@@ -82,7 +89,7 @@ class RestApiDemoController {
 }
 
 class Coffee {
-	private final String id;
+	private String id;
 	private String name;
 
 	public Coffee(String id, String name) {
@@ -104,5 +111,13 @@ class Coffee {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setId() {
+		this.id = UUID.randomUUID().toString();
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }
