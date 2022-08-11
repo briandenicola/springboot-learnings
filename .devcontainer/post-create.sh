@@ -12,5 +12,6 @@ sdk install springboot
 
 sudo apt update
 sudo apt install -y make
+sudo apt install -y httpie
 
 echo "$(date)    post-create stop" >> ~/status
