@@ -10,6 +10,10 @@ public class Coffee {
 	private String id;
 	private String name;
 
+	public Coffee() {
+		this.id = UUID.randomUUID().toString();
+	}
+
 	public Coffee(String id, String name) {
 		this.id = id;
 		this.name = name;
