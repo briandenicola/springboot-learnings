@@ -13,7 +13,7 @@ clean :
 	az group delete -n $${RG} --yes || true
 
 build : 
-	mvn package && java -jar target/HelloWorld-0.0.1-SNAPSHOT.jar 
+	mvn package && java -jar target/AircraftRedisDemo-0.0.1-SNAPSHOT.jar 
 
 environment : 
-	cd infrastructure; terraform init; terraform apply -auto-approve
+	cd ../../infrastructure; terraform init; terraform apply -auto-approve
