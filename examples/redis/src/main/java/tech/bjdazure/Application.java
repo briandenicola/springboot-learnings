@@ -1,8 +1,5 @@
 package tech.bjdazure;
 
-import tech.bjdazure.entities.*;
-import tech.bjdazure.repository.AircraftRepository;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
