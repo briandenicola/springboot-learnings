@@ -9,6 +9,7 @@ target/
 .terraform/
 .terraform*
 terraform.tfstate
+terraform.tfstate.backup 
 
 ### STS ###
 .apt_generated
