@@ -1,4 +1,4 @@
-package tech.bjdazure.HelloWorldApplication;
+package tech.bjdazure;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

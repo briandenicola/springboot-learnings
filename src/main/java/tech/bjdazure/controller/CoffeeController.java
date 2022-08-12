@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/coffees")
-class RestApiDemoController {
+class CoffeeController {
 	private List<Coffee> coffees = new ArrayList<>();
 
-	public RestApiDemoController() {
+	public CoffeeController() {
 		coffees.addAll(List.of(
 			new Coffee("Americano"),
 			new Coffee("Cappuccino"),
