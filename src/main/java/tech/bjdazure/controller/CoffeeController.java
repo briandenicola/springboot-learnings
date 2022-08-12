@@ -6,6 +6,8 @@ import tech.bjdazure.repository.CoffeeRepository;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -25,10 +27,12 @@ class CoffeeController {
 	private final CoffeeRepository coffeeRepository;
 
 	public CoffeeController(CoffeeRepository coffeeRepository) {
-
 		this.coffeeRepository = coffeeRepository; 
+	}
 
-		this.coffeeRepository.saveAll(List.of(
+	@PostConstruct
+	private void loadData() {
+		coffeeRepository.saveAll(List.of(
 			new Coffee("Americano"),
 			new Coffee("Cappuccino"),
 			new Coffee("Latte")
