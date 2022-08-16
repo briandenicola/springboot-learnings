@@ -13,7 +13,7 @@ clean :
 	az group delete -n $${RG} --yes || true
 
 build : 
-	mvn package && java -jar target/HelloWorld-0.0.1-SNAPSHOT.jar 
+	mvn package && java -jar target/helloworld-0.0.1-SNAPSHOT.jar 
 
 container : 
 	mvn spring-boot:build-image
