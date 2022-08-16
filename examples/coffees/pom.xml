@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>tech.bjdazure</groupId>
-	<artifactId>HelloWorld</artifactId>
+	<artifactId>helloworld</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HelloWorld</name>
 	<description>Hello World Rest API for Java</description>
@@ -44,6 +44,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<image>
+							<name>bjd145/${project.artifactId}</name>
+						</image>
+					</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -17,5 +17,8 @@ build :
 	docker run --rm --name redis -d -p 6379:6379 redis || true
 	mvn package && java -jar target/AircraftRedisDemo-0.0.1-SNAPSHOT.jar 
 
+container : 
+	mvn spring-boot:build-image
+
 environment : 
 	cd ../../infrastructure; terraform init; terraform apply -auto-approve

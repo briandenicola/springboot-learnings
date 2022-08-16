@@ -15,5 +15,8 @@ clean :
 build : 
 	mvn package && java -jar target/HelloWorld-0.0.1-SNAPSHOT.jar 
 
+container : 
+	mvn spring-boot:build-image
+
 environment : 
 	cd infrastructure; terraform init; terraform apply -auto-approve
