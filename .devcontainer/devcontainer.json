@@ -14,12 +14,19 @@
 
 	"remoteUser": "vscode",
 	"features": {
-		"docker-in-docker": "latest",
-		"kubectl-helm-minikube": "1.23",
-		"terraform": "latest",
-		"azure-cli": "latest",
-		"java": "17",
-		"maven": "3.8"
+		"ghcr.io/devcontainers/features/azure-cli:1": {},
+		"ghcr.io/devcontainers/features/common-utils:1": {},
+		"ghcr.io/devcontainers/features/terraform:1": {},
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {},
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			
+			"version": "none",
+			"installMaven": "true",
+			"installGradle": "false"
+		}
 	},
 
 	"waitFor": "postCreateCommand",
