@@ -1,23 +1,27 @@
-data "azurerm_virtual_network" "vnet" {
-  name                = "DevSub01-VNet-001"
-  resource_group_name = "DevSub01_Network_RG"
+resource "azurerm_virtual_network" "this" {
+  name                = "${local.resource_name}-network"
+  address_space       = [ local.vnet_cidr ]
+  location            = azurerm_resource_group.this.location
+  resource_group_name = azurerm_resource_group.this.name
 }
 
-data "azurerm_subnet" "services_subnet" {
+resource "azurerm_subnet" "app_subnet" {
   name                 = "springcloud-runtime"
-  virtual_network_name = data.azurerm_virtual_network.vnet.name
-  resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
+  resource_group_name  = azurerm_resource_group.this.name
+  virtual_network_name = azurerm_virtual_network.this.name
+  address_prefixes     = [ local.runtime_subnet_cidir ]
 }
 
-data "azurerm_subnet" "app_subnet" {
+resource "azurerm_subnet" "services_subnet" {
   name                 = "springcloud-apps"
-  virtual_network_name = data.azurerm_virtual_network.vnet.name
-  resource_group_name  = data.azurerm_virtual_network.vnet.resource_group_name
+  resource_group_name  = azurerm_resource_group.this.name
+  virtual_network_name = azurerm_virtual_network.this.name
+  address_prefixes     = [ local.apps_subnet_cidir ]
 }
 
 resource "azurerm_role_assignment" "owner" {
-  scope                     = data.azurerm_virtual_network.vnet.id
+  scope                     = azurerm_virtual_network.this.id
   role_definition_name      = "Owner"
-  principal_id              = "e8de9221-a19c-4c81-b814-fd37c6caf9d2"
+  principal_id              = "77e44c53-4911-427e-83c2-e2a52f569dee"
   skip_service_principal_aad_check = true
 }

@@ -23,8 +23,8 @@ resource "azurerm_spring_cloud_service" "this" {
     }
 
     network {
-        app_subnet_id                           = data.azurerm_subnet.app_subnet.id
-        service_runtime_subnet_id               = data.azurerm_subnet.services_subnet.id
+        app_subnet_id                           = azurerm_subnet.app_subnet.id
+        service_runtime_subnet_id               = azurerm_subnet.services_subnet.id
         cidr_ranges                             = ["10.20.0.0/16", "10.21.0.0/16", "10.30.0.1/16"]
         app_network_resource_group              = "${local.resource_name}_apps_rg"
         service_runtime_network_resource_group  = "${local.resource_name}_service_runtime_rg"
@@ -45,4 +45,13 @@ resource "azurerm_spring_cloud_app" "this" {
     identity {
         type = "SystemAssigned"
     }
+}
+
+resource "azurerm_spring_cloud_container_deployment" "piggymetrics" {
+  name                = "piggymetrics"
+  spring_cloud_app_id = azurerm_spring_cloud_app.this.id
+  instance_count      = 2
+  server             = "docker.io"
+  image              = "springio/gs-spring-boot-docker"
+  language_framework = "springboot"
 }
