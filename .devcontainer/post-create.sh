@@ -9,7 +9,7 @@ source /usr/local/sdkman/bin/sdkman-init.sh
 sdk install springboot
 
 wget https://aka.ms/download-jdk/microsoft-jdk-17.0.8-linux-x64.tar.gz -O  /tmp/microsoft-jdk-17.0.8-linux-x64.tar.gz
-sudo tar -xvf microsoft-jdk-17.0.8-linux-x64.tar.gz  --directory /opt
+sudo tar -xvf /tmp/microsoft-jdk-17.0.8-linux-x64.tar.gz  --directory /opt
 export JAVA_HOME=/opt/jdk-17.0.8+7/
 export PATH=$JAVA_HOME/bin:$PATH
 
